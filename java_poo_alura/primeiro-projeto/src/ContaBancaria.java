@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class ContaBancaria {
     String name;
-    int accountBalance;
+    double accountBalance;
     String accountType;
     //criar conta bancaria com 1 - consultar saldo, 2 - receber valor, 3 - transferir valor e sair
     public static void main(String[] args) {
@@ -13,7 +13,7 @@ public class ContaBancaria {
 
         ContaBancaria person1 = new ContaBancaria();
         person1.name = "Samuel Charles";
-        person1.accountBalance = 3000;
+        person1.accountBalance = 3000.05;
         person1.accountType = "Corrente";
 
         System.out.println("Digite o que deseja:");
