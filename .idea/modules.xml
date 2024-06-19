@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Alura-back.iml" filepath="$PROJECT_DIR$/.idea/Alura-back.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java-listas/java-listas.iml" filepath="$PROJECT_DIR$/java-listas/java-listas.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java_poo_alura/java_poo_alura.iml" filepath="$PROJECT_DIR$/java_poo_alura/java_poo_alura.iml" />
+      <module fileurl="file://$PROJECT_DIR$/screenMatch.iml" filepath="$PROJECT_DIR$/screenMatch.iml" />
     </modules>
   </component>
 </project>
