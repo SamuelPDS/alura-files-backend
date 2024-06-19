@@ -1,3 +1,5 @@
+package br.com.alura.screenmatch.models.exer1;
+
 public class IdadePessoa {
         private String name;
         private int age;

@@ -1,3 +1,5 @@
+package br.com.alura.screenmatch.models.exer1;
+
 public class ContaBancaria {
     private int numConta;
     private double saldo;
