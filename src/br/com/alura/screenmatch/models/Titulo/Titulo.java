@@ -65,11 +65,11 @@ public class Titulo {
     }
 
     public void toRate(double note) {
-        totalRates += note;
+        totalRates += (int) note;
         quantRateNum++;
     }
 
     public double rateAverage() {
-        return totalRates / quantRateNum;
+        return (double) totalRates / quantRateNum;
     }
 }

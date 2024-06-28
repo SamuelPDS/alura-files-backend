@@ -17,4 +17,9 @@ private String diretor;
     public int getClassification() {
         return (int) rateAverage()/2;
     }
+
+    @Override
+    public String toString() {
+        return "Filme: " + this.getTotalRates() + " (" + getReleaseDate() + ")";
+    }
 }
