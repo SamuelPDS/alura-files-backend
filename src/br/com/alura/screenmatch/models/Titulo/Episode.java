@@ -4,6 +4,10 @@ public class Episode extends Serie {
     private int episodeNum;
     private Serie serie;
 
+    public Episode(){
+        super();
+    }
+
     public Serie getSerie() {
         return serie;
     }

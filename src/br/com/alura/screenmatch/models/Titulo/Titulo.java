@@ -8,8 +8,11 @@ public class Titulo {
     private int totalRates;
     private int duration_minutes;
 
-    public String getName() {
-        return name;
+    public Titulo(){}
+
+    public Titulo(String name, int releaseDate){
+        this.name = name;
+        this.releaseDate = releaseDate;
     }
 
     public int getReleaseDate() {

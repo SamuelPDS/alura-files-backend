@@ -8,6 +8,12 @@ public class Serie extends Titulo implements Classificable {
     private boolean ativa;
     private int minutosPorEpisodio;
 
+    public Serie(){}
+
+    public Serie(String name, int releaseDate) {
+        super(name, releaseDate);
+    }
+
     public int getTemporadas() {
         return temporadas;
     }
