@@ -24,6 +24,6 @@ private String diretor;
 
     @Override
     public String toString() {
-        return "Filme: " + this.getTotalRates() + " (" + getReleaseDate() + ")";
+        return "Filme: " + this.getName() + " (" + getReleaseDate() + ")";
     }
 }
