@@ -55,4 +55,14 @@ public class Serie extends Titulo implements Classificable {
     public int getClassification() {
         return getTotalRates()/2;
     }
+
+    @Override
+    public String toString() {
+        return "Serie{" +
+                "nome=" + getName() +
+                "temporadas=" + temporadas +
+                ", epsPorTemporada=" +
+                ", minutosPorEpisodio=" + minutosPorEpisodio +
+                '}';
+    }
 }
