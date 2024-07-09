@@ -5,7 +5,7 @@ import br.com.alura.screenmatch.models.Titulo.Serie;
 import br.com.alura.screenmatch.models.Titulo.Titulo;
 import exercises.Person;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class ArrayPrincipal {
     public static void main(String[] args) {
@@ -33,5 +33,24 @@ public class ArrayPrincipal {
 
 //        TitleArrayList.forEach(title -> System.out.println(title));
 ////        TitleArrayList.forEach(System.out::println);
+
+
+        List<String> searchByArtist = new LinkedList<>();
+    searchByArtist.add("Julio");
+    searchByArtist.add("Amanda");
+    searchByArtist.add("Paulo");
+    searchByArtist.add("Pedro");
+    searchByArtist.add("Julio");
+
+        System.out.println("nome ordenados:");
+        Collections.sort(searchByArtist);
+
+        System.out.println("Filmes em ordem");
+        System.out.println(searchByArtist);
+        Collections.sort(TitleArrayList);
+        System.out.println(TitleArrayList);
+        TitleArrayList.sort(Comparator.comparing(Titulo::getReleaseDate));
+        System.out.println(TitleArrayList);
     }
+
 }
