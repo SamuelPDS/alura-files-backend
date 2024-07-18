@@ -1,7 +1,12 @@
 package br.com.alura.screenmatch.models.Titulo;
 
+import br.com.alura.screenmatch.models.ObdbTitle;
+import com.google.gson.annotations.SerializedName;
+
 public class Titulo implements Comparable<Titulo> {
+    @SerializedName("Title")
     private String name;
+    @SerializedName("Year")
     private int releaseDate;
     private boolean hasPlan;
     private int quantRateNum;
@@ -13,6 +18,12 @@ public class Titulo implements Comparable<Titulo> {
     public Titulo(String name, int releaseDate){
         this.name = name;
         this.releaseDate = releaseDate;
+    }
+
+    public Titulo(ObdbTitle mytitle) {
+        this.name = mytitle.title();
+        this.releaseDate = Integer.parseInt(mytitle.year());
+        this.duration_minutes = Integer.parseInt(mytitle.runtime().substring(0,2));
     }
 
     public int getReleaseDate() {
@@ -83,5 +94,14 @@ public class Titulo implements Comparable<Titulo> {
     @Override
     public int compareTo(Titulo otherTitle) {
        return this.getName().compareTo(otherTitle.getName());
+    }
+
+    @Override
+    public String toString() {
+        return "Titulo{" +
+                "name='" + name + '\'' +
+                ", duration_minutes=" + duration_minutes +
+                ", releaseDate=" + releaseDate +
+                '}';
     }
 }

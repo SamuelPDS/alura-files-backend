@@ -1,5 +1,11 @@
 package br.com.alura.screenmatch.principal;
 
+import br.com.alura.screenmatch.models.ObdbTitle;
+import br.com.alura.screenmatch.models.Titulo.Titulo;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -20,5 +26,13 @@ public class SearchPrincipal {
         HttpResponse<String> response = client
                 .send(request, HttpResponse.BodyHandlers.ofString());
             System.out.println(response.body());
-        }
+
+        Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
+//        Titulo meutitulo = gson.fromJson(response.body(), Titulo.class);
+        ObdbTitle mytitle = gson.fromJson(response.body(), ObdbTitle.class);
+        Titulo meutitulo = new Titulo(mytitle);
+        System.out.println("Nome: "+mytitle);
+        System.out.println(meutitulo);
+
+    }
 }
