@@ -4,6 +4,16 @@ public class Person {
     private String name;
     private int age;
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    private String city;
+
     public String getName(){
         return this.name;
     }
