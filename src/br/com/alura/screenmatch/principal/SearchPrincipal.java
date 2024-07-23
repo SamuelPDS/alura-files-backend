@@ -1,5 +1,6 @@
 package br.com.alura.screenmatch.principal;
 
+import br.com.alura.screenmatch.exceptions.YearConvertinException;
 import br.com.alura.screenmatch.models.ObdbTitle;
 import br.com.alura.screenmatch.models.Titulo.Titulo;
 import com.google.gson.FieldNamingPolicy;
@@ -18,21 +19,30 @@ public class SearchPrincipal {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Qual filme deseja pesquisar?");
         String title = scanner.next();
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://www.omdbapi.com/?t="+title+"&apikey=f9035b5d"))
-                .build();
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://www.omdbapi.com/?t="+title.replace(" ", "+")+"&apikey=f9035b5d"))
+                    .build();
 
-        HttpResponse<String> response = client
-                .send(request, HttpResponse.BodyHandlers.ofString());
+            HttpResponse<String> response = client
+                    .send(request, HttpResponse.BodyHandlers.ofString());
             System.out.println(response.body());
 
-        Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
+            Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
 //        Titulo meutitulo = gson.fromJson(response.body(), Titulo.class);
-        ObdbTitle mytitle = gson.fromJson(response.body(), ObdbTitle.class);
-        Titulo meutitulo = new Titulo(mytitle);
-        System.out.println("Nome: "+mytitle);
-        System.out.println(meutitulo);
-
+            ObdbTitle mytitle = gson.fromJson(response.body(), ObdbTitle.class);
+//        try {
+            Titulo meutitulo = new Titulo(mytitle);
+            System.out.println("Nome: "+mytitle);
+            System.out.println(meutitulo);
+        } catch (NumberFormatException e) {
+            System.out.println("Erro!");
+            System.out.println(e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro na busca");
+        } catch (YearConvertinException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

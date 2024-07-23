@@ -1,5 +1,6 @@
 package br.com.alura.screenmatch.models.Titulo;
 
+import br.com.alura.screenmatch.exceptions.YearConvertinException;
 import br.com.alura.screenmatch.models.ObdbTitle;
 import com.google.gson.annotations.SerializedName;
 
@@ -22,6 +23,9 @@ public class Titulo implements Comparable<Titulo> {
 
     public Titulo(ObdbTitle mytitle) {
         this.name = mytitle.title();
+        if(mytitle.year().length() > 4) {
+            throw new YearConvertinException("Was not possible to convert the year");
+        }
         this.releaseDate = Integer.parseInt(mytitle.year());
         this.duration_minutes = Integer.parseInt(mytitle.runtime().substring(0,2));
     }
